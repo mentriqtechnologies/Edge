@@ -142,7 +142,7 @@ export default function Home() {
               <div className="premium-features">
                 <div className="premium-feature">
                   <span className="premium-feature-ic">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8z" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.9 4.7L18.5 9.5l-4.6 1.8L12 16l-1.9-4.7L5.5 9.5l4.6-1.8z" /><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z" /><path d="M6 16.5l.7 1.6 1.6.7-1.6.7L6 21l-.7-1.5-1.6-.7 1.6-.7z" /></svg>
                   </span>
                   <div>
                     <b>AI-Integrated Learning</b>
@@ -151,7 +151,7 @@ export default function Home() {
                 </div>
                 <div className="premium-feature">
                   <span className="premium-feature-ic">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h5a3 3 0 013 3v12a3 3 0 00-3-3H4V3zm16 0h-5a3 3 0 00-3 3v12a3 3 0 013-3h5V3z" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z" /><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z" /></svg>
                   </span>
                   <div>
                     <b>Future-Ready Curriculum</b>
@@ -160,7 +160,7 @@ export default function Home() {
                 </div>
                 <div className="premium-feature">
                   <span className="premium-feature-ic">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="6" r="3" /><path d="M6 18c0-3 2.7-5 6-5s6 2 6 5" /><path d="M12 9v4" /></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z" /><path d="m3 12 9 5 9-5" /><path d="m3 17 9 5 9-5" /></svg>
                   </span>
                   <div>
                     <b>5+ Career Tracks &amp; Specializations</b>
