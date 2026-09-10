@@ -141,8 +141,8 @@ export default function Home() {
               <h2 className="premium-title">Your Dream Career Starts with the Right Program</h2>
               <div className="premium-features">
                 <div className="premium-feature">
-                  <span className="premium-feature-ic">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.9 4.7L18.5 9.5l-4.6 1.8L12 16l-1.9-4.7L5.5 9.5l4.6-1.8z" /><path d="M18.5 15.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z" /><path d="M6 16.5l.7 1.6 1.6.7-1.6.7L6 21l-.7-1.5-1.6-.7 1.6-.7z" /></svg>
+                  <span className="premium-feature-ic ic-ai">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8" /><rect x="4" y="8" width="16" height="12" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></svg>
                   </span>
                   <div>
                     <b>AI-Integrated Learning</b>
@@ -150,8 +150,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="premium-feature">
-                  <span className="premium-feature-ic">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z" /><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z" /></svg>
+                  <span className="premium-feature-ic ic-cur">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10 12 5 2 10l10 5z" /><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" /><path d="M22 10v6" /></svg>
                   </span>
                   <div>
                     <b>Future-Ready Curriculum</b>
@@ -159,8 +159,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="premium-feature">
-                  <span className="premium-feature-ic">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z" /><path d="m3 12 9 5 9-5" /><path d="m3 17 9 5 9-5" /></svg>
+                  <span className="premium-feature-ic ic-track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" /></svg>
                   </span>
                   <div>
                     <b>5+ Career Tracks &amp; Specializations</b>
