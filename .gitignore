@@ -1,0 +1,19 @@
+# OS junk
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# editors
+.vscode/
+.idea/
+*.suo
+*.user
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# logs
+logs
+*.log
