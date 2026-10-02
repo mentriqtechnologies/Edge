@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className="foot-contact">
               <li>Sanganer, Jaipur, Rajasthan 302033</li>
               <li><a href="tel:+917665531312">+91 7665531312</a></li>
-              <li><a href="mailto:admissions@edgeinstitute.in">admissions@edgeinstitute.in</a></li>
+              <li><a href="mailto:support@mentriqtechnologies.in">support@mentriqtechnologies.in</a></li>
             </ul>
           </div>
         </div>

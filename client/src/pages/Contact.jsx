@@ -48,7 +48,7 @@ export default function Contact() {
               </div>
               <div className="info-item">
                 <h4>Email</h4>
-                <p><a href="mailto:admissions@edgeinstitute.in">admissions@edgeinstitute.in</a></p>
+                <p><a href="mailto:support@mentriqtechnologies.in">support@mentriqtechnologies.in</a></p>
               </div>
               <div className="info-item">
                 <h4>Campus visits</h4>
