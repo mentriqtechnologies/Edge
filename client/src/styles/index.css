@@ -145,13 +145,14 @@ main { padding-top: 72px; }
 }
 .hero-image-wrap {
   position: relative; z-index: 1; margin-bottom: 56px;
-  aspect-ratio: 4 / 4.4; border-radius: 26px; overflow: hidden;
+  aspect-ratio: 1397 / 1126; border-radius: 26px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, .45);
   border: 1.5px solid rgba(255, 255, 255, .15);
   background: radial-gradient(ellipse at 50% 30%, rgba(79, 179, 255, .16), transparent 60%), linear-gradient(160deg, rgba(23, 52, 88, .55), rgba(11, 31, 58, .85));
 }
 .hero-image {
-  width: 100%; height: 100%; object-fit: contain; display: block;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  border-radius: 25px; overflow: hidden;
 }
 .hero-badge {
   position: absolute; display: flex; flex-direction: column; gap: 2px;
@@ -1157,7 +1158,7 @@ main { padding-top: 72px; }
   .hero-stats { grid-template-columns: 1fr 1fr; gap: 8px; padding-bottom: 28px; }
   .hstat b { font-size: 18px; }
   .hstat span { font-size: 10.5px; }
-  .hero-image-wrap { max-width: 260px; margin-bottom: 28px; aspect-ratio: 1 / 1.1; }
+  .hero-image-wrap { max-width: 260px; margin-bottom: 28px; }
   .hero-badge-top { top: 10px; right: 2px; padding: 7px 10px; }
   .hero-badge-bottom { bottom: 20px; left: 2px; padding: 7px 10px; }
   .hero-badge b { font-size: 14px; }
@@ -1292,7 +1293,7 @@ main { padding-top: 72px; }
 /* ===== LANDSCAPE PHONES (max-height: 500px, landscape orientation) ===== */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero { padding: 20px 0 0; }
-  .hero-image-wrap { max-width: 200px; margin-bottom: 16px; aspect-ratio: 1 / 1; }
+  .hero-image-wrap { max-width: 200px; margin-bottom: 16px; }
   .hero-copy h1 { font-size: 22px; margin: 8px 0; }
   .hero-stats { grid-template-columns: repeat(4, 1fr); padding-bottom: 16px; }
   .page-hero { padding: 32px 0 24px; }
