@@ -20,6 +20,13 @@ connectDB();
 
 const app = express();
 
+// Render terminates the connection in front of this service and sets
+// X-Forwarded-For. Trust exactly one hop so req.ip resolves to the real client
+// rather than the proxy — express-rate-limit needs this to key limits by user.
+// Do NOT use `true` here: that would trust client-supplied X-Forwarded-For and
+// let anyone bypass the rate limit by spoofing the header.
+app.set('trust proxy', 1);
+
 const ALLOWED_ORIGINS = (process.env.CLIENT_URL || '')
   .split(',')
   .map((o) => o.trim())
