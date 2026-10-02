@@ -357,19 +357,23 @@ export default function Home() {
           />
           <div className="partner-block">
             <h4 className="block-label">Campus Partners</h4>
-            <div className="partner-grid">
-              {(campusPartners.length ? campusPartners : [{ name: 'Suresh Gyan Vihar Campus', tagline: 'Jagatpura, Jaipur' }, { name: 'Bhartiya Skill Development Campus', tagline: 'Jaipur', }, { name: 'Jaipur National Campus', tagline: 'Jagatpura, Jaipur' }]).map((p) => (
-                <div className="partner-card" key={p.name}>
-                  <b>{p.name}</b>
-                  <span>{p.tagline}</span>
-                  {p.tags && (
-                    <div className="tag-row">
-                      {p.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+            {campusPartners.length ? (
+              <div className="partner-grid">
+                {campusPartners.map((p) => (
+                  <div className="partner-card" key={p.name}>
+                    <b>{p.name}</b>
+                    <span>{p.tagline}</span>
+                    {p.tags && (
+                      <div className="tag-row">
+                        {p.tags.map((t) => <span className="tag" key={t}>{t}</span>)}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="partner-empty">Campus names will be revealed soon. Our partner campuses are being finalised — reach out to the admissions desk to know which campus you will study at.</p>
+            )}
           </div>
 
           <div className="partner-block">

@@ -753,9 +753,6 @@ export const faqs = [
 ];
 
 export const partners = [
-  { name: 'Suresh Gyan Vihar Campus', kind: 'campus', tagline: 'Jagatpura, Jaipur', description: 'A research-driven campus with flexible, industry-aligned programs.', tags: ['Research-driven', 'Flexible programs'] },
-  { name: 'Bhartiya Skill Development Campus', kind: 'campus', tagline: 'Jaipur', description: 'Skill-first campus modelled on the Swiss dual education system.', tags: ['Industry-integrated', 'Skill-first'] },
-  { name: 'Jaipur National Campus', kind: 'campus', tagline: 'Jagatpura, Jaipur', description: 'Campus with an active training & placement cell and strong hackathon culture.', tags: ['Active T&P Cell', 'Hackathons'] },
   { name: 'Infotech Systems Ltd', kind: 'recruiter', tagline: 'Product engineering', description: 'Product development and enterprise software partner.', tags: ['Product Engineering', 'Java / React'] },
   { name: 'Nimbus CloudWorks', kind: 'recruiter', tagline: 'Cloud and DevOps', description: 'Cloud consulting firm hiring cloud and DevOps talent.', tags: ['Cloud', 'DevOps'] },
   { name: 'DataVista Analytics', kind: 'recruiter', tagline: 'Data and analytics', description: 'Analytics consultancy working with retail and BFSI clients.', tags: ['Data Science', 'BI'] },

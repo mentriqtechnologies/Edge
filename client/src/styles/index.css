@@ -238,6 +238,10 @@ main { padding-top: 72px; }
 .partner-block { margin-bottom: 40px; }
 .block-label { font-size: 12.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.partner-empty {
+  background: #fff; border: 1px dashed var(--line); border-radius: var(--radius);
+  padding: 28px; color: var(--muted); font-size: 14.5px; text-align: center;
+}
 .partner-card {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
   padding: 28px; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
