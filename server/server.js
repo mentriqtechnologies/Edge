@@ -20,15 +20,33 @@ connectDB();
 
 const app = express();
 
+const ALLOWED_ORIGINS = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+const ALLOWED_BASE_DOMAINS = (process.env.CLIENT_DOMAINS || 'mentriqtechnologies.in')
+  .split(',')
+  .map((d) => d.trim())
+  .filter(Boolean);
+
+const isAllowedOrigin = (origin, callback) => {
+  // No Origin header means a non-browser client (curl, health checks, proxying).
+  if (!origin) return callback(null, true);
+  if (ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+  try {
+    const { hostname } = new URL(origin);
+    const allowed = ALLOWED_BASE_DOMAINS.some(
+      (d) => hostname === d || hostname.endsWith(`.${d}`)
+    );
+    return callback(null, allowed);
+  } catch {
+    return callback(null, false);
+  }
+};
+
 app.use(helmet({ crossOriginResourcePolicy: false }));
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL
-      ? process.env.CLIENT_URL.split(',').map((o) => o.trim())
-      : '*',
-    credentials: true,
-  })
-);
+app.use(cors({ origin: isAllowedOrigin, credentials: true }));
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
