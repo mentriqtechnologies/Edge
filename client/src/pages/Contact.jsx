@@ -1,20 +1,53 @@
 import { useState } from 'react';
 import SectionHead from '../components/SectionHead.jsx';
+import FieldError from '../components/FieldError.jsx';
 import api, { apiError } from '../api/client.js';
+import { validateName, validateEmail, validatePhone, normalisePhone } from '../utils/validate.js';
+
+const validators = { name: validateName, email: validateEmail, phone: validatePhone };
+
+const fieldClass = (errors, name) => `field${errors[name] ? ' invalid' : ''}`;
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState(null);
+  const [errors, setErrors] = useState({});
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const validateField = (name, value) => (validators[name] ? validators[name](value) : '');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    if (errors[name]) setErrors({ ...errors, [name]: validateField(name, value) });
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    if (!validators[name]) return;
+    setErrors({ ...errors, [name]: validateField(name, value) });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus(null);
+
+    const nextErrors = {};
+    for (const [name, validate] of Object.entries(validators)) {
+      const message = validate(form[name]);
+      if (message) nextErrors[name] = message;
+    }
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) {
+      setStatus({ ok: false, message: 'Please fix the highlighted fields and try again.' });
+      return;
+    }
+
     try {
-      const { data } = await api.post('/inquiries', { type: 'contact', ...form });
+      const payload = { type: 'contact', ...form, phone: normalisePhone(form.phone) };
+      const { data } = await api.post('/inquiries', payload);
       setStatus({ ok: true, message: data.message || 'Message sent. We will get back to you soon.' });
       setForm({ name: '', email: '', phone: '', message: '' });
+      setErrors({});
     } catch (err) {
       setStatus({ ok: false, message: apiError(err) });
     }
@@ -63,18 +96,21 @@ export default function Contact() {
               <div className={`alert ${status.ok ? 'alert-success' : 'alert-error'}`}>{status.message}</div>
             )}
             <div className="two-col">
-              <div className="field">
+              <div className={fieldClass(errors, 'name')}>
                 <label htmlFor="c-name">Name</label>
-                <input id="c-name" name="name" required value={form.name} onChange={handleChange} placeholder="Your full name" />
+                <input id="c-name" name="name" required value={form.name} onChange={handleChange} onBlur={handleBlur} placeholder="Your full name" autoComplete="name" />
+                <FieldError>{errors.name}</FieldError>
               </div>
-              <div className="field">
+              <div className={fieldClass(errors, 'phone')}>
                 <label htmlFor="c-phone">Phone</label>
-                <input id="c-phone" name="phone" value={form.phone} onChange={handleChange} placeholder="+91 98765 43210" />
+                <input id="c-phone" name="phone" type="tel" inputMode="tel" value={form.phone} onChange={handleChange} onBlur={handleBlur} required placeholder="+91 98765 43210" autoComplete="tel" />
+                <FieldError>{errors.phone}</FieldError>
               </div>
             </div>
-            <div className="field">
+            <div className={fieldClass(errors, 'email')}>
               <label htmlFor="c-email">Email</label>
-              <input id="c-email" name="email" type="email" required value={form.email} onChange={handleChange} placeholder="you@example.com" />
+              <input id="c-email" name="email" type="email" required value={form.email} onChange={handleChange} onBlur={handleBlur} placeholder="you@example.com" autoComplete="email" />
+              <FieldError>{errors.email}</FieldError>
             </div>
             <div className="field">
               <label htmlFor="c-message">Message</label>
