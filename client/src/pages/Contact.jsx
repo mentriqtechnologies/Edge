@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SectionHead from '../components/SectionHead.jsx';
+import api, { apiError } from '../api/client.js';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -11,17 +12,11 @@ export default function Contact() {
     e.preventDefault();
     setStatus(null);
     try {
-      const res = await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'contact', ...form }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
-      setStatus({ ok: true, message: data.message });
+      const { data } = await api.post('/inquiries', { type: 'contact', ...form });
+      setStatus({ ok: true, message: data.message || 'Message sent. We will get back to you soon.' });
       setForm({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
-      setStatus({ ok: false, message: err.message || 'Could not send. Please try again.' });
+      setStatus({ ok: false, message: apiError(err) });
     }
   };
 

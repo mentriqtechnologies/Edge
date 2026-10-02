@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import api, { apiError } from '../api/client.js';
 
 export const DEGREES = ['B.Tech', 'BCA', 'BBA', 'MCA', 'MBA'];
 
@@ -21,17 +22,11 @@ export default function LeadsForm({ compact = false }) {
     setDone(null);
     setSubmitting(true);
     try {
-      const res = await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'admission', ...form }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
-      setDone('Thanks! Our admissions team will contact you within one working day.');
+      const { data } = await api.post('/inquiries', { type: 'admission', ...form });
+      setDone(data.message || 'Thanks! Our admissions team will contact you within one working day.');
       setForm({ ...empty });
     } catch (err) {
-      setError(err.message || 'Could not submit. Please try again.');
+      setError(apiError(err));
     } finally {
       setSubmitting(false);
     }
